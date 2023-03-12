@@ -5,7 +5,8 @@ const elementsSchema = new Schema({
   name: String,
   description: String,
   atomicNumber: Number,
-  mass: Number
+  mass: Number,
+  abbreviation: String
 });
 
 const elementsModel = mongoose.model('elements', elementsSchema)
