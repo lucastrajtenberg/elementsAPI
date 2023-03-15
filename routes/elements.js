@@ -6,7 +6,7 @@ router.get('/', elementsController.getElements)
 
 router.post('/new', elementsController.addElement)
 
-router.delete('/delete', elementsController.deleteElement)
+router.delete('/delete/:id', elementsController.deleteElement)
 
 router.put('/update/:id', elementsController.updateElement)
 
