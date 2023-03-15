@@ -5,6 +5,7 @@ module.exports = {
         const data = await elementsService.getElements()
         res.send(data)          
     },
+    //añadir una verificacion de que si no respeta el esquema no agregue el objeto. PREGUNTARLE A MANU POR LAS DUDAS
     addElement: async (req, res, next) => {
         const payload = req.body
         if(Object.keys(payload).length === 0) res.send("Payload doesn't exist")
@@ -12,8 +13,12 @@ module.exports = {
         res.send(data)      
     },
     deleteElement: async (req, res, next) => {
-        const filter = req.body
-        const data = await elementsService.deleteElement(filter)
+        const _id = req.params.id
+        console.log(_id)
+        const idObject = {
+            _id
+        }
+        const data = await elementsService.deleteElement(idObject)
         const {deletedCount} = data
         if(deletedCount == 0) res.send("Couldn't delete element")
         else res.send(data)
